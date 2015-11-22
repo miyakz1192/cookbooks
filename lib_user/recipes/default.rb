@@ -13,7 +13,7 @@ Chef::Resource::File.send(:include, IniFileHelper)
 
 
 file "/etc/neutron/neutron.conf" do
-  inifile(:action => :check) do |i|
+  inifile(:action => :fix) do |i|
     i.section 'DEFAULT' do
       i.eq 'lock_path', '$state_path/lock'
     end
