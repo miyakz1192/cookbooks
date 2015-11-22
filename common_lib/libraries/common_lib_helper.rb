@@ -65,7 +65,7 @@ module IniFileHelper
       node.set[:config_file_check][filename] = "ok"
       block.call ctx
     rescue RecordMismatchException => e
-      Chef::Log.warn("RecordMismatchException #{e.message}")
+      Chef::Log.error("RecordMismatchException #{e.message}")
       node.set[:config_file_check][filename] = e.message
     end
   end
